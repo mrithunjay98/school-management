@@ -1,21 +1,32 @@
+<%@ page import="com.gyanjyoti.controller.WELOCME" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>School Management System</title>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-  body {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add custom styles here */
+        .container.form {
+            max-width: 500px;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+          body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
   }
   .jumbotron {
-  background-color:#ffffff;
-    color: blue;
+    background-color:#455EE7;
+    color: #fff;
     padding: 1px 0;
     text-align: center;
     margin-bottom: 30px;
@@ -32,10 +43,10 @@
       background-color:#28BA0B;
       color: #fff;
       border: none;
-      border-radius: 10px;
+      border-radius: 25px;
       text-decoration: none;
       text-align: center;
-      padding: 6px 10px;
+      padding: 10px 20px;
       transition: background-color 0.3s, color 0.3s;
       display: flex;
       align-items: center;
@@ -120,79 +131,31 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
-       
-
-        .container.form {
-         margin-top: 30px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 500px;
-         
-            text-align: center;
-              
-        }
-
-        .container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            
-            background-color: #0056b3;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .form-group button:hover {
-            background-color: #28BA0B;
-        }
-  </style>
-  
-  
-  
-  
+    </style>
 </head>
+<%
+WELOCME.setAppSession(session);
+%>
 <body>
 <marquee behavior="scroll" direction="left">Children are the future of our India let's educate them</marquee>
 <div class="jumbotron">
   <div class="container">
-  
-  <%---
+   <%--
     <h1 class="header-text">GYAN JYOTI PUBLIC SCHOOL</h1>
-     --%>
+ --%>
     <div class="btn-container">
       <a href="/home" class="btn btn-primary custom-link-box">Home</a>
-      <a href="" class="btn btn-primary custom-link-box">Gallery</a>
-      <a href="/fees" class="btn btn-primary custom-link-box">Fees structure</a>
+      <a href="/listStudent" class="btn btn-primary custom-link-box">See All student</a>
+      
       
          <a href="/about" class="btn btn-primary custom-link-box">About us</a>
        <div class="dropdown">
-  
+  <button class="dropbtn">Login</button>
+  <div class="dropdown-content">
+    <a href="#">Principle</a>
+    <a href="/classteacherLogin">class teacher</a>
+    <a href=""></a>Student
+  </div>
 </div>
       </div>
      
@@ -200,34 +163,54 @@
   </div>
 
 
+
+ <
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+<div class="container">
+  <h1> Welcome Mr ${name}</h1>
+  <br>
+   <h4> Your class:  ${className} </h4><br>
   
-   
-    
-</head>
-<body>
-<br>
-<br>
-<center><h2> Enter Login Details</h2></center>
-    <div class="container form">
-        
-        <form action="/VerifyClassTeacherlogin" method="post">
+ <h4>  Room no:  ${room}</h4>
+  <br>
+</div>
+            
+ <div class="container mt-5">
+        <h2 class="text-center">User Information Form</h2>
+        <form action="createClassTeacher" method="post" class="mt-4">
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" class="form-control" required>
             </div>
             <div class="form-group">
-                <button type="submit">Login</button>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
             </div>
+            <div class="form-group">
+                <label for="className">Class Name:</label>
+                <input type="text" id="className" name="className" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="roomNo">Room Number:</label>
+                <input type="text" id="roomNo" name="roomNo" class="form-control" required>
+            </div>
+            
+            
+             <div class="form-group">
+                <label for="roomNo">Class Teacher ID:</label>
+                <input type="text" id="classTeacherId" name="classTeacher_id" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

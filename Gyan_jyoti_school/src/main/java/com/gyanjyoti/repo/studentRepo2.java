@@ -1,11 +1,15 @@
 package com.gyanjyoti.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.gyanjyoti.entity.Student;
 import com.gyanjyoti.login.ClassTeacherLogin;
-import com.gyanjyoti.login.StudentLogin;
 
-public interface studentRepo2 extends JpaRepository<StudentLogin, Long> {
-	StudentLogin	findByemail(String email);
+
+public interface studentRepo2 extends JpaRepository<Student, Long> {
+	Student	findByemail(String email);
+
+	List<Student> findByClassTeacherId(String id);
 }

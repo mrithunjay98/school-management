@@ -182,7 +182,9 @@
 <marquee behavior="scroll" direction="left">Children are the future of our India let's educate them</marquee>
 <div class="jumbotron">
   <div class="container">
+  <%--
     <h1 class="header-text">GYAN JYOTI PUBLIC SCHOOL</h1>
+ --%>
     <div class="btn-container">
       <a href="/home" class="btn btn-primary custom-link-box">Home</a>
       <a href="" class="btn btn-primary custom-link-box">Gallery</a>

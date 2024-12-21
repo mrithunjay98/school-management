@@ -1,4 +1,5 @@
 <%@ page import="com.gyanjyoti.controller.ClassTeacher"%><!DOCTYPE html>
+<%@ page import="com.gyanjyoti.controller.WELOCME" %>
 
 <html lang="en">
 <head>
@@ -6,6 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>School Management System</title>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
 
 <style>
   body {
@@ -126,27 +129,31 @@
     background-color: #3e8e41;
   }
 </style>
-
->
+<%
+WELOCME.setAppSession(session);
+%>
 </head>
 <body>
 <marquee behavior="scroll" direction="left">Children are the future of our India let's educate them</marquee>
 <div class="jumbotron">
   <div class="container">
+     <%--
     <h1 class="header-text">GYAN JYOTI PUBLIC SCHOOL</h1>
+ --%>>
     <div class="btn-container">
     <a href="/home" class="btn btn-primary custom-link-box">Home</a>
     
       <form action="/redirect" method="post">
-        <input type="hidden" name="className" value="${className}">
-        <input type="hidden" name="room" value="${room}">
+        <input type="hidden" name="className" value="${classs}">
+        <input type="hidden" name="email" value="${email}">
         <input type="hidden" name="name" value="${name}">
-        <!-- Add more hidden input fields for other attributes of the class object if needed -->
+         <input type="hidden" name="id" value="${id}">
+       
         <button type="submit" class="btn submit-btn">Create Student</button>
       </form>
       
       
-      <a href="/listStudent1" class="btn btn-primary custom-link-box">See All student</a>
+      <a href="/listStudent1?id=${id}" class="btn btn-primary custom-link-box">See All student</a>
       <a href="/about" class="btn btn-primary custom-link-box">About us</a>
       <div class="dropdown">
         <button class="dropbtn">Login</button>
@@ -159,13 +166,16 @@
     </div>
   </div>
 </div>
-
+<% 
+	String userId = (String) session.getAttribute("name");
+        		System.out.println(userId);
+        		%>
 <div class="container">
  <h1> Welcome Mr ${name}</h1>
   <br>
-  <h4> Your class : ${className} </h4><br>
+  <h4> Your class : ${classs} </h4><br>
   
- <h4>  Room no: ${room}</h4>
+  <h4>  Email: ${email}</h4>
   <br>
 </div>
 

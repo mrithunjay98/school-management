@@ -15,6 +15,7 @@ public class ClassTeacherLogin {
 	    private String name;
 	    private String className;
 	    private String roomNo;
+	    private String classTeacher_id;
 	    
 	    
 	    
@@ -54,6 +55,12 @@ public class ClassTeacherLogin {
 		}
 		public void setRoomNo(String roomNo) {
 			this.roomNo = roomNo;
+		}
+		public String getClassTeacher_id() {
+			return classTeacher_id;
+		}
+		public void setClassTeacher_id(String classTeacher_id) {
+			this.classTeacher_id = classTeacher_id;
 		}
 	    
 	    

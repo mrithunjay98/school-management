@@ -181,7 +181,9 @@
 <marquee behavior="scroll" direction="left">Children are the future of our India let's educate them</marquee>
 <div class="jumbotron">
   <div class="container">
+  <%---
     <h1 class="header-text">GYAN JYOTI PUBLIC SCHOOL</h1>
+     --%>
     <div class="btn-container">
       <a href="/home" class="btn btn-primary custom-link-box">Home</a>
       <a href="" class="btn btn-primary custom-link-box">Gallery</a>
@@ -213,12 +215,12 @@
         
         <form action="/VerifyprincipleLogin" method="post">
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="username" required="required" />
+        <br/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required="required" />
             </div>
             <div class="form-group">
                 <button type="submit">Login</button>

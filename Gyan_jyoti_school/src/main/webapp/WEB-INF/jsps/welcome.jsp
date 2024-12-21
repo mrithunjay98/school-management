@@ -189,7 +189,9 @@
 </marquee>
 <div class="jumbotron">
   <div class="container">
+  <%---
     <h1 class="header-text">GYAN JYOTI  PUBLIC SCHOOL</h1>
+     --%>
     <div class="btn-container">
       <a href="/home" class="dropbtn">Home</a>
       <a href="" class="dropbtn">Gallery</a>
@@ -209,10 +211,12 @@
     </div>
   </div>
 
-
+<%---
   <div class="zoom">
  <img src="school.jpeg" alt="School Image">
  </div>
+  --%>
+ 
   <h3 class="infrastructure">Infrastructure</h3>
   <div class="infrastructure">
     <img src="icon-playground.png" alt="Playground">

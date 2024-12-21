@@ -11,6 +11,7 @@
 	<groupId>com.gyanjyoti</groupId>
 	<artifactId>school-management</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	 <packaging>jar</packaging>
 	<name>Gyan_jyoti_school</name>
 	<description>school management </description>
 	<properties>

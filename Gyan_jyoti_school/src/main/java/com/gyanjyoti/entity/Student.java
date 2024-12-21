@@ -17,18 +17,39 @@ public class Student {
 	    private Long id;
 	    
 	    private String name;
+	    private String password;
 	    private String address;
 	    private String phone;
 	    private String email;
 	    private String fathersName;
 	    private Date dob;
+	    private String classTeacherName;
 	    private String classTeacherId;
 	    private String className;
 	    private String busRouteno;
 	    private String addmissionNo;
+	    private String rollNo;
 	   
-	    
+	   
 		
+		public String getClassTeacherName() {
+			return classTeacherName;
+		}
+		public void setClassTeacherName(String classTeacherName) {
+			this.classTeacherName = classTeacherName;
+		}
+		public String getClassTeacherId() {
+			return classTeacherId;
+		}
+		public void setClassTeacherId(String classTeacherId) {
+			this.classTeacherId = classTeacherId;
+		}
+		public String getRollNo() {
+			return rollNo;
+		}
+		public void setRollNo(String rollNo) {
+			this.rollNo = rollNo;
+		}
 		public String getClassTeacher() {
 			return classTeacherId;
 		}
@@ -96,6 +117,12 @@ public class Student {
 		}
 		public void setId(Long id) {
 			this.id = id;
+		}
+		public String getPassword() {
+			return password;
+		}
+		public void setPassword(String password) {
+			this.password = password;
 		}
 	    
 	    

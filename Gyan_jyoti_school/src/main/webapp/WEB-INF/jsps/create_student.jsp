@@ -1,3 +1,4 @@
+<%@ page import="com.gyanjyoti.controller.WELOCME" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,11 +133,16 @@
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
     </style>
 </head>
+<%
+WELOCME.setAppSession(session);
+%>
 <body>
 <marquee behavior="scroll" direction="left">Children are the future of our India let's educate them</marquee>
 <div class="jumbotron">
   <div class="container">
+    <%--
     <h1 class="header-text">GYAN JYOTI PUBLIC SCHOOL</h1>
+ --%>
     <div class="btn-container">
       <a href="/home" class="btn btn-primary custom-link-box">Home</a>
       <a href="/listStudent" class="btn btn-primary custom-link-box">See All student</a>
@@ -167,39 +173,66 @@
   <br>
    <h4> Your class:  ${className} </h4><br>
   
- <h4>  Room no:  ${room}</h4>
+ <h4>  Email  ${email}</h4>
   <br>
 </div>
             
     <div class="container form">
         <h2 class="text-center mb-4">New Student</h2>
         <form action="/create"  method="post">
-            <div class="form-group">
+                 <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" id="name" name="name" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="address">Address:</label>
-                <input type="text" class="form-control" id="address" name="address" required>
+                <textarea id="address" name="address" class="form-control" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <textarea id="password" name="password" class="form-control"  required></textarea>
             </div>
             <div class="form-group">
                 <label for="phone">Phone:</label>
-                <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" required>
-                <small class="form-text text-muted">Enter 10-digit phone number.</small>
+                <input type="tel" id="phone" name="phone" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="fathersName">Father's Name:</label>
-                <input type="text" class="form-control" id="fathersName" name="fathersName" required>
+                <input type="text" id="fathersName" name="fathersName" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="dob">Date of Birth:</label>
-                <input type="date" class="form-control" id="dob" name="dob" required>
+                <input type="date" id="dob" name="dob" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            <div class="form-group">
+                <label for="classTeacherName">Class Teacher's Name:</label>
+                <input type="text" id="classTeacherName" name="classTeacherName" value="${name}" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="classTeacherId">Class Teacher ID:</label>
+                <input type="text" id="classTeacherId" name="classTeacherId" value="${id} " class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="className">Class Name:</label>
+                <input type="text" id="className" name="className" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="busRouteno">Bus Route Number:</label>
+                <input type="text" id="busRouteno" name="busRouteno" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="addmissionNo">Admission Number:</label>
+                <input type="text" id="addmissionNo" name="addmissionNo" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="rollNo">Roll Number:</label>
+                <input type="text" id="rollNo" name="rollNo" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 

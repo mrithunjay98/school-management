@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gyanjyoti.entity.Student;
 import com.gyanjyoti.login.ClassTeacherLogin;
 import com.gyanjyoti.login.PrincipleLogin;
-import com.gyanjyoti.login.StudentLogin;
-import com.gyanjyoti.repo.studentRepo;
+
 import com.gyanjyoti.repo.studentRepo2;
 
 ;
@@ -24,18 +24,17 @@ import com.gyanjyoti.repo.studentRepo2;
 @Controller
 public class StudentController {
 
-	@Autowired
-	private studentRepo repo;
+
 	@Autowired
 	private studentRepo2 repo2;
 	
 	@RequestMapping("/VerifyStudentLogin")
-	public String verifyLogin(@ModelAttribute("abcd") StudentLogin ct,ModelMap m){
+	public String verifyLogin(@ModelAttribute("abcd") Student ct,ModelMap m){
 		
 		String email = ct.getEmail();
 		String password = ct.getPassword();
 		
-		StudentLogin findByemail = repo2.findByemail(email);
+		Student findByemail = repo2.findByemail(email);
 		
 		String email2 = findByemail.getEmail();
 		String password2 = findByemail.getPassword();
@@ -49,7 +48,7 @@ public class StudentController {
 			System.out.println("sucess");
 			
 		
-			return "Class_teachers";
+			return "student";
 			
 		}else {
 				return "invalid password";
@@ -60,7 +59,7 @@ public class StudentController {
 	public String saveStudent(@ModelAttribute ("abcd") Student  student) {
 		
 		
-		repo.save(student);
+		repo2.save(student);
 		return "Class_teachers";
 		
 	}
@@ -77,10 +76,10 @@ public class StudentController {
 	}
 	@ResponseBody
 	@GetMapping("/listStudent")
-	public List<Student> allStudent(Model m) {
+	public List<Student> allStudent(Model m, @RequestParam("id") String id) {
 		
-		
-		List<Student> findAll = repo.findAll();
+		System.out.println();
+		List<Student> findAll = repo2.findByClassTeacherId(id);
 		m.addAttribute("students",findAll);
 		System.out.println(findAll);
 

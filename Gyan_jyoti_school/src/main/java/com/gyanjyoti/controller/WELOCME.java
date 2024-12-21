@@ -6,7 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import javax.servlet.http.HttpSession;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 
 
 
@@ -20,17 +23,14 @@ public class WELOCME {
 
 
 
-	    private static HttpSession appSession;
-	   
-	    // Getter for appSession
-	    public static HttpSession getAppSession() {
-	        return appSession;
-	    }
+	public static HttpSession appSession;
 
-	    // Setter for appSession
-	//    public static void setAppSession(HttpSession appSession) {
-	   //     SessionManager.appSession = appSession;
-	 //   }
+	public static HttpSession getAppSession() {
+		return appSession;
+	}
+	public static void setAppSession(HttpSession appSession) {
+		WELOCME.appSession = appSession;
+	}
 	
 
 	

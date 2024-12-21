@@ -1,15 +1,13 @@
+<%@ page import="com.gyanjyoti.controller.ClassTeacher"%><!DOCTYPE html>
+<%@ page import="com.gyanjyoti.controller.WELOCME" %>
 
-<%@ page import="com.gyanjyoti.controller.WELOCME" %><!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>School Management System</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
- 
 
 
 <style>
@@ -131,28 +129,30 @@
     background-color: #3e8e41;
   }
 </style>
-</head>
 <%
 WELOCME.setAppSession(session);
 %>
+</head>
 <body>
 <marquee behavior="scroll" direction="left">Children are the future of our India let's educate them</marquee>
 <div class="jumbotron">
   <div class="container">
+     <%--
     <h1 class="header-text">GYAN JYOTI PUBLIC SCHOOL</h1>
+ --%>
     <div class="btn-container">
     <a href="/home" class="btn btn-primary custom-link-box">Home</a>
     
-      <form action="/createStudent" method="post">
+      <form action="/createClassteacher" method="post">
         <input type="hidden" name="className" value="${className}">
         <input type="hidden" name="room" value="${room}">
         <input type="hidden" name="name" value="${name}">
         <!-- Add more hidden input fields for other attributes of the class object if needed -->
-        <button type="submit" class="btn submit-btn">Create Student</button>
+        <button type="submit" class="btn submit-btn">Create Class Teacher</button>
       </form>
       
       
-      <a href="/listStudent" class="btn btn-primary custom-link-box">See All student</a>
+      <a href="/listStudent1" class="btn btn-primary custom-link-box">See All student</a>
       <a href="/about" class="btn btn-primary custom-link-box">About us</a>
       <div class="dropdown">
         <button class="dropbtn">Login</button>
@@ -165,7 +165,10 @@ WELOCME.setAppSession(session);
     </div>
   </div>
 </div>
-
+<% 
+	String userId = (String) session.getAttribute("name");
+        		System.out.println(userId);
+        		%>
 <div class="container">
  <h1> Welcome Mr ${name}</h1>
   <br>
@@ -174,25 +177,8 @@ WELOCME.setAppSession(session);
  <h4>  Room no: ${room}</h4>
   <br>
 </div>
- <h1>Student List</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Department</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="student" items="${students}">
-                <tr>
-                    <td>${student.id}</td>
-                    <td>${student.name}</td>
-                    <td>${student.department}</td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
