@@ -1,5 +1,5 @@
-<%@ page import="com.gyanjyoti.controller.ClassTeacher"%><!DOCTYPE html>
-<%@ page import="com.gyanjyoti.controller.WELOCME" %>
+<%@ page import="com.gyanjyoti.controller.ClassTeacherController"%><!DOCTYPE html>
+<%@ page import="com.gyanjyoti.controller.WELOCMEController" %>
 
 <html lang="en">
 <head>
@@ -130,7 +130,7 @@
   }
 </style>
 <%
-WELOCME.setAppSession(session);
+WELOCMEController.setAppSession(session);
 %>
 </head>
 <body>
@@ -151,8 +151,8 @@ WELOCME.setAppSession(session);
         <button type="submit" class="btn submit-btn">Create Class Teacher</button>
       </form>
       
-      
-      <a href="/listStudent1" class="btn btn-primary custom-link-box">See All student</a>
+       <a href="/listCt" class="btn btn-primary custom-link-box">See All Class Teacher </a>
+      <a href="listAllStudent" class="btn btn-primary custom-link-box">See All student</a>
       <a href="/about" class="btn btn-primary custom-link-box">About us</a>
       <div class="dropdown">
         <button class="dropbtn">Login</button>

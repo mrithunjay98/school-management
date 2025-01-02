@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
-public class principle {
+public class PrincipleController {
 	
 
 	
@@ -51,7 +51,7 @@ private principalrepo repo;
 			return "principle";
 			
 		}else {
-				return "principal_login";
+				return "Not_found";
 			}
 		
 		

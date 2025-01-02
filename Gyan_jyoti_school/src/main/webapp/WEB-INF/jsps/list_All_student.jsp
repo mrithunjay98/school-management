@@ -75,7 +75,7 @@
 </head>
 <body>
 
-<h1>List of All Students</h1>
+<h1 style="color:black">List of All Students</h1>
 
 
 <table id="studentTable" style="display:none;">
@@ -111,7 +111,7 @@
         // Show loading indicator
         if (loadingIndicator) loadingIndicator.style.display = 'block';
 
-        fetch(`/ctStudent?id=${id}`) // Use the correct `id` value in your application
+        fetch(`/listAllStudents`) // Use the correct `id` value in your application
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);

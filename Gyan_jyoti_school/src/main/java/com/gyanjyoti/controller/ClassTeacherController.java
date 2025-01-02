@@ -8,23 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gyanjyoti.login.ClassTeacherLogin;
 import com.gyanjyoti.login.PrincipleLogin;
 import com.gyanjyoti.repo.CteacherRepo;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-
-
-
-
+import java.util.List;
+import java.util.Random;
 
 @Controller
-public class ClassTeacher {
+public class ClassTeacherController {
 	
 
 	
@@ -35,8 +35,12 @@ private CteacherRepo repo;
 	 @PostMapping("/createClassTeacher")
 	    public String saveUser(@ModelAttribute ClassTeacherLogin user, Model model) {
 	      
-	        System.out.println("User details saved: " + user);
-
+		  Random random = new Random();
+	        
+	        // Generate a random 8-digit number
+	        int random8DigitNumber = 10000000 + random.nextInt(90000000);
+	     
+            user.setClassTeacher_id(Integer.toString(random8DigitNumber));
 	        repo.save(user);
 	        model.addAttribute("message", "User saved successfully!");
 	        
@@ -55,31 +59,22 @@ private CteacherRepo repo;
 	        ClassTeacherLogin findByEmail = repo.findByemail(email);
 	        System.out.println("database email"+findByEmail.getEmail());
 			  System.out.println("database password"+findByEmail.getPassword());
-	        if (findByEmail != null) {
-	         
-	        	if (password.equals(findByEmail.getPassword()) && email.equals(findByEmail.getEmail())) {
-	        	   
-	        	
-        m.addAttribute("name", findByEmail.getName());
-        m.addAttribute("id", findByEmail.getId());
-        m.addAttribute("classs", findByEmail.getRoomNo());
-        m.addAttribute("email", findByEmail.getEmail());
-        m.addAttribute("id", findByEmail.getClassTeacher_id());
+	        if (password.equals(findByEmail.getPassword()) && email.equals(findByEmail.getEmail())) {
+			   
+			
+      m.addAttribute("name", findByEmail.getName());
+      m.addAttribute("id", findByEmail.getId());
+      m.addAttribute("classs", findByEmail.getRoomNo());
+      m.addAttribute("email", findByEmail.getEmail());
+      m.addAttribute("id", findByEmail.getClassTeacher_id());
 
-
-	                
-	               
-	                return "Class_teachers";
-	            } else {
-	              
-	                m.addAttribute("error", "Invalid password");
-	                return "login"; // Return the login view again
-	            }
-	        } else {
-	          
-	            m.addAttribute("error", "No account found with this email");
-	            return "login";
-	        }
+			   
+			    return "Class_teachers";
+			} else {
+			  
+			    m.addAttribute("error", "Invalid password");
+			    return "Not_found"; // Return the login view again
+			}
 	    }
 	  
 	@RequestMapping("/redirect")
@@ -98,6 +93,30 @@ private CteacherRepo repo;
 		  
 	  }
 	
+	
+	
+	
+	@GetMapping("/listCt")
+	public String alent() {
+		
+
+	
+      return "list_classTeacher";
+		
+	}
+	
+	@ResponseBody
+	 @GetMapping("/classTeachers")
+	    public List<ClassTeacherLogin> listCT() {
+	      
+	    
+
+	        List<ClassTeacherLogin> all = repo.findAll();
+	     
+	        
+	      
+	        return all;
+	    }
 	
 	
 }

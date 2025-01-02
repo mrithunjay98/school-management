@@ -1,5 +1,5 @@
-<%@ page import="com.gyanjyoti.controller.ClassTeacher"%><!DOCTYPE html>
-<%@ page import="com.gyanjyoti.controller.WELOCME" %>
+<%@ page import="com.gyanjyoti.controller.ClassTeacherController"%><!DOCTYPE html>
+<%@ page import="com.gyanjyoti.controller.WELOCMEController" %>
 
 <html lang="en">
 <head>
@@ -130,7 +130,7 @@
   }
 </style>
 <%
-WELOCME.setAppSession(session);
+WELOCMEController.setAppSession(session);
 %>
 </head>
 <body>

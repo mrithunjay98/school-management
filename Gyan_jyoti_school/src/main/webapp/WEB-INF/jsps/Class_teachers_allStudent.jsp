@@ -1,5 +1,5 @@
 
-<%@ page import="com.gyanjyoti.controller.WELOCME" %><!DOCTYPE html>
+<%@ page import="com.gyanjyoti.controller.WELOCMEController" %><!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
@@ -133,7 +133,7 @@
 </style>
 </head>
 <%
-WELOCME.setAppSession(session);
+WELOCMEController.setAppSession(session);
 %>
 <body>
 <marquee behavior="scroll" direction="left">Children are the future of our India let's educate them</marquee>

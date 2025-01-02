@@ -1,5 +1,5 @@
-<%@ page import="com.gyanjyoti.controller.ClassTeacher"%><!DOCTYPE html>
-<%@ page import="com.gyanjyoti.controller.WELOCME" %>
+<%@ page import="com.gyanjyoti.controller.ClassTeacherController"%><!DOCTYPE html>
+<%@ page import="com.gyanjyoti.controller.WELOCMEController" %>
 
 <html lang="en">
 <head>
@@ -130,7 +130,7 @@
   }
 </style>
 <%
-WELOCME.setAppSession(session);
+WELOCMEController.setAppSession(session);
 %>
 </head>
 <body>
@@ -139,7 +139,7 @@ WELOCME.setAppSession(session);
   <div class="container">
      <%--
     <h1 class="header-text">GYAN JYOTI PUBLIC SCHOOL</h1>
- --%>>
+ --%>
     <div class="btn-container">
     <a href="/home" class="btn btn-primary custom-link-box">Home</a>
     
@@ -153,7 +153,7 @@ WELOCME.setAppSession(session);
       </form>
       
       
-      <a href="/listStudent1?id=${id}" class="btn btn-primary custom-link-box">See All student</a>
+      <a href="/listStudentCt?id=${id}" class="btn btn-primary custom-link-box">See All student</a>
       <a href="/about" class="btn btn-primary custom-link-box">About us</a>
       <div class="dropdown">
         <button class="dropbtn">Login</button>

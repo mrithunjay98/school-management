@@ -1,4 +1,4 @@
-<%@ page import="com.gyanjyoti.controller.WELOCME" %>
+<%@ page import="com.gyanjyoti.controller.WELOCMEController" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,7 +134,7 @@
     </style>
 </head>
 <%
-WELOCME.setAppSession(session);
+WELOCMEController.setAppSession(session);
 %>
 <body>
 <marquee behavior="scroll" direction="left">Children are the future of our India let's educate them</marquee>

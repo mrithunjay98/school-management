@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpSession;
 
 
 @Controller
-public class WELOCME {
+public class WELOCMEController {
 
 	
 	
@@ -29,7 +29,7 @@ public class WELOCME {
 		return appSession;
 	}
 	public static void setAppSession(HttpSession appSession) {
-		WELOCME.appSession = appSession;
+		WELOCMEController.appSession = appSession;
 	}
 	
 

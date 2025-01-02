@@ -1,4 +1,4 @@
-<%@ page import="com.gyanjyoti.controller.WELOCME" %>
+<%@ page import="com.gyanjyoti.controller.WELOCMEController" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,7 +134,7 @@
     </style>
 </head>
 <%
-WELOCME.setAppSession(session);
+WELOCMEController.setAppSession(session);
 %>
 <body>
 <marquee behavior="scroll" direction="left">Children are the future of our India let's educate them</marquee>
@@ -202,10 +202,7 @@ WELOCME.setAppSession(session);
             </div>
             
             
-             <div class="form-group">
-                <label for="roomNo">Class Teacher ID:</label>
-                <input type="text" id="classTeacherId" name="classTeacher_id" class="form-control" required>
-            </div>
+            
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

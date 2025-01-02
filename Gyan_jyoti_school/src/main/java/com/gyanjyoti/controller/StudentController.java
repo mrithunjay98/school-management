@@ -51,7 +51,7 @@ public class StudentController {
 			return "student";
 			
 		}else {
-				return "invalid password";
+				return "Not_found";
 			}}
 	  
 	
@@ -65,22 +65,44 @@ public class StudentController {
 	}
 	
 
-	@GetMapping("/listStudent1")
-	public String alent() {
+	@GetMapping("/listStudentCt")
+	public String alent(@RequestParam("id") String id,Model m) {
 		
-		
-		
+	
+		m.addAttribute("id",id);
 	
       return "list_student";
 		
 	}
 	@ResponseBody
-	@GetMapping("/listStudent")
+	@GetMapping("/ctStudent")
 	public List<Student> allStudent(Model m, @RequestParam("id") String id) {
-		
-		System.out.println();
-		List<Student> findAll = repo2.findByClassTeacherId(id);
+		System.out.println("id----"+id);
+	
+		List<Student> findAll = repo2.findByClassTeacherIdNative(id);
 		m.addAttribute("students",findAll);
+		System.out.println(findAll);
+
+      return findAll;
+		
+	}
+	
+	
+	
+	@RequestMapping("/listAllStudent")
+	public String allStudentRedirect() {
+	
+		
+      return "list_All_student";
+		
+	}
+	
+	@ResponseBody
+	@GetMapping("/listAllStudents")
+	public List<Student> allStudent() {
+	
+		List<Student> findAll = repo2.findAll();
+	
 		System.out.println(findAll);
 
       return findAll;
