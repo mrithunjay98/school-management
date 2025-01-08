@@ -77,9 +77,9 @@ public class StudentController {
 	@ResponseBody
 	@GetMapping("/ctStudent")
 	public List<Student> allStudent(Model m, @RequestParam("id") String id) {
-		System.out.println("id----"+id);
+		System.out.println(" class Teacher id----"+id);
 	
-		List<Student> findAll = repo2.findByClassTeacherIdNative(id);
+		List<Student> findAll = repo2.findByClassTeacherId(id);
 		m.addAttribute("students",findAll);
 		System.out.println(findAll);
 

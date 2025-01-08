@@ -88,12 +88,7 @@
               <th>Room No</th>
                 <th>ID</th>
             
-            <th>Phone</th>
-           
-            <th>Father's Name</th>
-            <th>Date of Birth</th>
-           
-            <th>Class Name</th>
+       
         </tr>
     </thead>
     <tbody id="classTeacherTableBody">

@@ -37,14 +37,15 @@ private CteacherRepo repo;
 	      
 		  Random random = new Random();
 	        
-	        // Generate a random 8-digit number
-	        int random8DigitNumber = 10000000 + random.nextInt(90000000);
+	       
+		  int random4DigitNumber = 1000 + random.nextInt(9000);
+
 	     
-            user.setClassTeacher_id(Integer.toString(random8DigitNumber));
+            user.setClassTeacher_id(Integer.toString(random4DigitNumber));
 	        repo.save(user);
 	        model.addAttribute("message", "User saved successfully!");
 	        
-	        // Redirect to a success or confirmation page
+	      
 	        return "principle";
 	    }
 	  @RequestMapping("/VerifyClassTeacherlogin")
@@ -57,8 +58,10 @@ private CteacherRepo repo;
 		  System.out.println("input password"+password);
 		
 	        ClassTeacherLogin findByEmail = repo.findByemail(email);
-	        System.out.println("database email"+findByEmail.getEmail());
-			  System.out.println("database password"+findByEmail.getPassword());
+	        if (findByEmail == null) {
+	            m.addAttribute("error", "Email not found");
+	            return "Not_found"; 
+	        }
 	        if (password.equals(findByEmail.getPassword()) && email.equals(findByEmail.getEmail())) {
 			   
 			
@@ -73,7 +76,7 @@ private CteacherRepo repo;
 			} else {
 			  
 			    m.addAttribute("error", "Invalid password");
-			    return "Not_found"; // Return the login view again
+			    return "Not_found"; 
 			}
 	    }
 	  
