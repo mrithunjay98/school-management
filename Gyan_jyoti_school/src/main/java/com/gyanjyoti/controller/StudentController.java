@@ -79,7 +79,7 @@ public class StudentController {
 	public List<Student> allStudent(Model m, @RequestParam("id") String id) {
 		System.out.println(" class Teacher id----"+id);
 	
-		List<Student> findAll = repo2.findByClassTeacherId(id);
+		List<Student> findAll = repo2.findByClassTeacherIdLike(id);
 		m.addAttribute("students",findAll);
 		System.out.println(findAll);
 

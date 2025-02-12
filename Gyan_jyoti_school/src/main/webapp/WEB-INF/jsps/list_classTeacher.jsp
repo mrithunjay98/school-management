@@ -106,7 +106,7 @@
         const tableBody = document.getElementById('classTeacherTableBody');
         const loadingIndicator = document.getElementById('loadingIndicator');
 
-        // Show loading indicator
+       
         if (loadingIndicator) loadingIndicator.style.display = 'block';
 
         fetch('/classTeachers') 
@@ -119,19 +119,19 @@
             .then(data => {
                 console.log('Fetched Class Teachers:', data);
 
-                tableBody.innerHTML = ''; // Clear previous rows
+                tableBody.innerHTML = ''; 
 
                 if (data.length === 0) {
-                    // Show a message if no class teachers are returned
+                   
                     const row = document.createElement('tr');
                     const cell = document.createElement('td');
-                    cell.colSpan = 6; // Adjust according to your table's column count
+                    cell.colSpan = 6; 
                     cell.textContent = 'No class teachers found.';
                     cell.style.textAlign = 'center';
                     row.appendChild(cell);
                     tableBody.appendChild(row);
                 } else {
-                    // Populate the table with class teacher data
+                   
                     data.forEach(teacher => {
                         const row = document.createElement('tr');
 
@@ -146,28 +146,28 @@
                     });
                 }
 
-                table.style.display = 'table'; // Ensure table is visible
+                table.style.display = 'table'; 
             })
             .catch(error => {
                 console.error('Error fetching class teacher data:', error);
 
-                // Display error message in the table
+               
                 tableBody.innerHTML = '';
                 const row = document.createElement('tr');
                 const cell = document.createElement('td');
-                cell.colSpan = 6; // Adjust according to your table's column count
+                cell.colSpan = 6; 
                 cell.textContent = 'An error occurred while fetching class teacher data.';
                 cell.style.textAlign = 'center';
                 row.appendChild(cell);
                 tableBody.appendChild(row);
             })
             .finally(() => {
-                // Hide loading indicator
+                
                 if (loadingIndicator) loadingIndicator.style.display = 'none';
             });
     }
 
-    // Helper function to create a table cell
+   
     function createCell(content) {
         const cell = document.createElement('td');
         cell.textContent = content;

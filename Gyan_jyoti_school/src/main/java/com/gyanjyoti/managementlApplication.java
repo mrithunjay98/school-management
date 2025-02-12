@@ -4,10 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GyanJyotiSchoolApplication {
+public class managementlApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GyanJyotiSchoolApplication.class, args);
+		SpringApplication.run(managementlApplication.class, args);
+		
+		System.out.println("server started");
 	}
 
 }

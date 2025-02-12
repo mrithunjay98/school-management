@@ -14,6 +14,8 @@ public interface studentRepo2 extends JpaRepository<Student, Long> {
 	Student	findByemail(String email);
 
 	
-	    List<Student> findByClassTeacherId(@Param("classTeacherId") String classTeacherId);
+	@Query("SELECT s FROM Student s WHERE s.classTeacherId LIKE %:classTeacherId%")
+	List<Student> findByClassTeacherIdLike(@Param("classTeacherId") String classTeacherId);
+
 
 }
