@@ -46,6 +46,8 @@ private principalrepo repo;
 		if(username.equals(email2)&&password.equals(password2)) {
 			
 			System.out.println("sucess");
+			  m.addAttribute("name",findByemail.getName());
+			  m.addAttribute("email",email2);
 			
 		
 			return "principle";
@@ -60,10 +62,10 @@ private principalrepo repo;
 	}
 
 @RequestMapping("/createClassteacher")
-public String studentform(@RequestParam("name")String s3,@RequestParam("className")String s,@RequestParam("room") String s2, ModelMap m) {
-  m.addAttribute("className",s);
-  m.addAttribute("room",s2);
-  m.addAttribute("name",s3);
+public String studentform(@RequestParam("name")String name,@RequestParam("email")String email, ModelMap m) {
+
+  m.addAttribute("email",email);
+  m.addAttribute("name",name);
 //   String userId = (String) session.getAttribute("userId");
   return "createClassTeacher";
   

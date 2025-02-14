@@ -145,7 +145,7 @@ WELOCMEController.setAppSession(session);
  --%>
     <div class="btn-container">
       <a href="/home" class="btn btn-primary custom-link-box">Home</a>
-      <a href="/listStudent" class="btn btn-primary custom-link-box">See All student</a>
+      <a href="/listStudentCt?id=${id}" class="btn btn-primary custom-link-box">See All student</a>
       
       
          <a href="/about" class="btn btn-primary custom-link-box">About us</a>

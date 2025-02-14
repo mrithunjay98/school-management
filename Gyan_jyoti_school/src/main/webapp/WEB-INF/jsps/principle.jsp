@@ -144,15 +144,15 @@ WELOCMEController.setAppSession(session);
     <a href="/home" class="btn btn-primary custom-link-box">Home</a>
     
       <form action="/createClassteacher" method="post">
-        <input type="hidden" name="className" value="${className}">
-        <input type="hidden" name="room" value="${room}">
+       
+        <input type="hidden" name="email" value="${email}">
         <input type="hidden" name="name" value="${name}">
         <!-- Add more hidden input fields for other attributes of the class object if needed -->
         <button type="submit" class="btn submit-btn">Create Class Teacher</button>
       </form>
       
        <a href="/listCt" class="btn btn-primary custom-link-box">See All Class Teacher </a>
-      <a href="listAllStudent" class="btn btn-primary custom-link-box">See All student</a>
+      <a href="/listAllStudent" class="btn btn-primary custom-link-box">See All student</a>
       <a href="/about" class="btn btn-primary custom-link-box">About us</a>
       <div class="dropdown">
         <button class="dropbtn">Login</button>
@@ -170,11 +170,10 @@ WELOCMEController.setAppSession(session);
         		System.out.println(userId);
         		%>
 <div class="container">
- <h1> Welcome Mr ${name}</h1>
+ <h2> Welcome Mr ${name}</h2>
   <br>
-  <h4> Your class : ${className} </h4><br>
-  
- <h4>  Room no: ${room}</h4>
+ 
+ <h4>  Email: ${email}</h4>
   <br>
 </div>
 

@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.gyanjyoti.login.ClassTeacherLogin;
 import com.gyanjyoti.login.PrincipleLogin;
 import com.gyanjyoti.repo.CteacherRepo;
+import com.gyanjyoti.repo.principalrepo;
+
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -27,24 +29,28 @@ import java.util.Random;
 public class ClassTeacherController {
 	
 
-	
+	@Autowired
+private principalrepo repoPrincipal;
 	
 	@Autowired
 private CteacherRepo repo;
 	
 	 @PostMapping("/createClassTeacher")
-	    public String saveUser(@ModelAttribute ClassTeacherLogin user, Model model) {
+	    public String saveUser(@RequestParam("namePrince") String principleName,@RequestParam("emailPrince") String principleEmail,@ModelAttribute ClassTeacherLogin user, Model m) {
 	      
 		  Random random = new Random();
 	        
-	       
+	     
 		  int random4DigitNumber = 1000 + random.nextInt(9000);
 
 	     
             user.setClassTeacher_id(Integer.toString(random4DigitNumber));
 	        repo.save(user);
-	        model.addAttribute("message", "User saved successfully!");
+	        m.addAttribute("message", "User saved successfully!");
+	        PrincipleLogin findByemail = repoPrincipal.findByemail(principleEmail);
 	        
+	        m.addAttribute("name",findByemail.getName());
+			  m.addAttribute("email",principleEmail);
 	      
 	        return "principle";
 	    }

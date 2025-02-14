@@ -14,7 +14,35 @@ public class PrincipleLogin {
     private Long id;
     private String email;
     private String password;
-	
+    private String name;
+    private String mob;
+    private String locationCode;
+    private String branch;
+ 
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getMob() {
+		return mob;
+	}
+	public void setMob(String mob) {
+		this.mob = mob;
+	}
+	public String getLocationCode() {
+		return locationCode;
+	}
+	public void setLocationCode(String locationCode) {
+		this.locationCode = locationCode;
+	}
+	public String getBranch() {
+		return branch;
+	}
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
 	public Long getId() {
 		return id;
 	}

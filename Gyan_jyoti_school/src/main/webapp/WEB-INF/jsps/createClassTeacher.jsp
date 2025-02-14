@@ -171,19 +171,21 @@ WELOCMEController.setAppSession(session);
 <div class="container">
   <h1> Welcome Mr ${name}</h1>
   <br>
-   <h4> Your class:  ${className} </h4><br>
+   <h4> Email:  ${email} </h4><br>
   
- <h4>  Room no:  ${room}</h4>
+
   <br>
 </div>
             
  <div class="container mt-5">
-        <h2 class="text-center">User Information Form</h2>
-        <form action="createClassTeacher" method="post" class="mt-4">
+        <h2 class="text-center">Create Class teacher</h2>
+        <form action="/createClassTeacher" method="post" class="mt-4">
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" class="form-control" required>
             </div>
+            <input type="hidden" name="emailPrince" value="${email}">
+        <input type="hidden" name="namePrince" value="${name}">
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" class="form-control" required>
